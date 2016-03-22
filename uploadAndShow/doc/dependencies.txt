@@ -1,0 +1,6 @@
+formidable
+util
+
+
+
+直接运行 npm i **   (** 为包名)就可以了

@@ -16,6 +16,7 @@ exports.parseReceivedData = function(req, cb){
     req.on('data', function(chunk){body += chunk});
     req.on('end', function(){
         var data = qs.parse(body);
+        console.log('让我们看看data里面是什么：' + data);
         cb(data);
     });
 };
@@ -51,7 +52,7 @@ exports.delete = function(db, req, res){
     exports.parseReceivedData(req, function(work){
         db.query(
             "DELETE FROM work WHERE id=?",
-            [work,id],
+            [work.id],
             function(err){
                 if(err) throw err;
                 exports.show(db, res);
